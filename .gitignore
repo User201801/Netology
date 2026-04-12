@@ -1,16 +1,228 @@
-﻿################################################################################
-# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
-################################################################################
+﻿# ============================================
+# C++ Project .gitignore
+# ============================================
 
-/Part_1/ConsoleApplication/.vs
-/.vs
-/Part_1/ConsoleApplication/x64/Debug
-/Part_1/ConsoleApplication/Exercise_1/x64/Debug/Exercise_1.tlog
-/Part_1/ConsoleApplication/Exercise_1/x64/Debug/Exercise_1.Build.CppClean.log
-/Part_1/ConsoleApplication/Exercise_1/x64/Debug/Exercise_1.exe.recipe
-/Part_1/ConsoleApplication/Exercise_1/x64/Debug/Exercise_1.ilk
-/Part_1/ConsoleApplication/Exercise_1/x64/Debug/Exercise_1.log
-/Part_1/ConsoleApplication/Exercise_1/x64/Debug/Exercise_1.vcxproj.FileListAbsolute.txt
-/Part_1/ConsoleApplication/Exercise_1/x64/Debug/main.obj
-/Part_1/ConsoleApplication/Exercise_1/x64/Debug/vc145.idb
-/Part_1/ConsoleApplication/Exercise_1/x64/Debug/vc145.pdb
+# -----------------------------
+# Компилируемые файлы
+# -----------------------------
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+
+# -----------------------------
+# Файлы сборки и отладки
+# -----------------------------
+Debug/
+Release/
+x64/
+x86/
+Win32/
+build/
+Build/
+cmake-build-*/
+.vs/
+out/
+bin/
+obj/
+
+# -----------------------------
+# Файлы IDE
+# -----------------------------
+# Visual Studio
+*.user
+*.suo
+*.sln.docstates
+*.vcxproj.user
+*.vcxproj.filters
+*.vcxproj.*.user
+.vs/
+.vscode/
+
+# CLion
+.idea/
+cmake-build-*/
+
+# Qt Creator
+*.user.*
+*.creator.user*
+*.creator.user
+*.files
+*.includes
+*.config
+
+# Code::Blocks
+*.depend
+*.layout
+*.cbTemp
+*.cbTemp.Release
+*.cbTemp.Debug
+
+# Xcode
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+*.xcworkspace/*
+!*.xcworkspace/contents.xcworkspacedata
+xcuserdata/
+*.xccheckout
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+*.xcuserstate
+
+# -----------------------------
+# C++ специфичные файлы
+# -----------------------------
+# Прекомпилированные заголовки
+*.gch
+*.pch
+
+# Файлы покрытия кода
+*.gcno
+*.gcda
+*.gcov
+*.gcov.*
+coverage/
+htmlcov/
+
+# -----------------------------
+# Сборка и зависимости
+# -----------------------------
+# CMake
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+*.cmake
+!CMakeLists.txt
+CMakeUserPresets.json
+CTestTestfile.cmake
+
+# Conan
+conaninfo.txt
+conanbuildinfo.*
+conanbuild.*
+conanenv.*
+conan_imports_*
+conan.lock
+
+# vcpkg
+vcpkg_installed/
+vcpkg-manifest-install.log
+
+# -----------------------------
+# Системные файлы
+# -----------------------------
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+*.swp
+*.swo
+*~
+*.orig
+
+# Linux
+*~
+.directory
+*.pid
+*.lock
+
+# -----------------------------
+# Логи и временные файлы
+# -----------------------------
+*.log
+*.tmp
+*.temp
+*.cache
+*.bak
+*.backup
+*.old
+
+# -----------------------------
+# Документация и тесты
+# -----------------------------
+# Документация
+docs/html/
+docs/latex/
+docs/_build/
+*.dox
+*.tag
+
+# Тестовые артефакты
+test_results/
+TestResults/
+*.trx
+*.xml
+!*.xml
+
+# -----------------------------
+# Файлы окружения
+# -----------------------------
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.cert
+
+# -----------------------------
+# Профилирование
+# -----------------------------
+*.prof
+*.profraw
+*.profdata
+
+# -----------------------------
+# Пользовательские файлы
+# -----------------------------
+*.userprefs
+*.userosscache
+*.opensdf
+*.sdf
+*.db
+*.db-shm
+*.db-wal
+
+# -----------------------------
+# Архивы
+# -----------------------------
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# -----------------------------
+# Особые случаи (когда нужно исключить)
+# -----------------------------
+# Не игнорировать важные файлы, которые могут попасть под паттерны
+!*.example
+!*.sample
+!.env.example
+
+# Примеры файлов, которые НЕ нужно игнорировать
+!CMakeLists.txt
+!main.cpp
+!*.h
+!*.hpp
+!*.cpp
