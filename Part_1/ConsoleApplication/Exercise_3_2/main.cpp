@@ -36,9 +36,9 @@ void InputValue(const std::string message, int& value) {
 }
 
 /// <summary>
-/// Вывод сожержимого массива в одну строку.
+/// Вывод содержимого массива в одну строку.
 /// </summary>
-/// <param name="arr">Ссылка на массив.</param>
+/// <param name="arr">Указатель на массив.</param>
 /// <param name="size">Размер массива.</param>
 void OutArrayToString(int arr[], int size) {
     for (size_t i = 0; i < (size); i++)
@@ -52,7 +52,7 @@ void OutArrayToString(int arr[], int size) {
 ///  Вывод значений массива в порядке убывания с помощью условного оператора IfElse.
 /// </summary>
 /// <param name="message">Сообщение.</param>
-/// <param name="arr">Ссылка на массив.</param>
+/// <param name="arr">Указатель на массив.</param>
 /// <param name="size">Размер массива.</param>
 void OutIfElse(const std::string message, int arr[], int size) {
     // Рассматриваю массив не как массив, а как 3 независимых целых числа.  
@@ -106,7 +106,7 @@ void OutIfElse(const std::string message, int arr[], int size) {
 /// Вывод значений массива в порядке убывания с помощью тернарного оператора.
 /// </summary>
 /// <param name="message">Сообщение.</param>
-/// <param name="arr">Ссылка на массив.</param>
+/// <param name="arr">Указатель на массив.</param>
 /// <param name="size">Размер массива.</param>
 void OutTernary(const std::string message, int arr[], int size) {
     // Рассматриваю массив не как массив, а как 3 независимых целых числа.  
