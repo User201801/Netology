@@ -14,6 +14,9 @@
 #include <windows.h>
 #include <format>
 
+const std::string INCORRECT_VALUE = "Некорректное значение !!!";
+const std::string INCORRECT_CONDITIONS = "По условиям задачи - числа должно быть 3";
+
 /// <summary>
 /// Чтение целочисленных значений с консоли, с вызовом исключений в случае ошибки.
 /// </summary>
@@ -22,12 +25,12 @@
 void InputValue(const std::string message, int& value) {
     std::cout << message;
     if (!(std::cin >> value)) {
-        throw std::runtime_error("Не удалось прочитать целое число !!!");
+        throw std::runtime_error(INCORRECT_VALUE);
     }
     else {
         char char_var = std::cin.peek();
         if (char_var != '\n') {
-            throw std::runtime_error("Неверный ввод !!!");
+            throw std::runtime_error(INCORRECT_VALUE);
         }
     }
 }
@@ -56,7 +59,7 @@ void OutIfElse(const std::string message, int arr[], int size) {
     std::cout << message;
     if (!(size == 3)) {
         // Закладываю ограничение на текущую задачу. 
-        throw std::runtime_error("По условиям задачи - числа должно быть 3");
+        throw std::runtime_error(INCORRECT_CONDITIONS);
     }
     else {
         if ((arr[0] >= arr[1]) and (arr[0] >= arr[2])) {
@@ -110,7 +113,7 @@ void OutTernary(const std::string message, int arr[], int size) {
     //std::cout << message;
     if (!(size == 3)) {
         // Закладываю ограничение на текущую задачу. 
-        throw std::runtime_error("По условиям задачи - числа должно быть 3");
+        throw std::runtime_error(INCORRECT_CONDITIONS);
     }
     else {
         int max = (arr[0] > arr[1]) ?
