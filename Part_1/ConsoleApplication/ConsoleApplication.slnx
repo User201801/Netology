@@ -9,5 +9,6 @@
   <Project Path="Exercise_1/Exercise_1.vcxproj" Id="668d17b1-d397-4897-959d-dca4d485c683" />
   <Project Path="Exercise_2/Exercise_2.vcxproj" Id="a76b4542-383b-4b50-a094-05da4d340637" />
   <Project Path="Exercise_2_2/Exercise_2_2.vcxproj" Id="ec46cc0e-acfc-4533-926c-c0b1d4cf7cdd" />
+  <Project Path="Exercise_3_1/Exercise_3_1.vcxproj" Id="1d8eae68-094f-4233-b881-89ab0efe76bb" />
   <Project Path="Exercise_3_2/Exercise_3_2.vcxproj" Id="5a8c80e3-3f0f-4c20-afe5-668af38c310c" />
 </Solution>

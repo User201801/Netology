@@ -9,6 +9,7 @@
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
     std::cout << text << std::endl;  // Вывод данных.
     std::cin.peek(); // чтение данных по 1 символу.
+    std::boolalpha; // вывод логических значений не целочисленными значениями.
 #include <windows.h>
   	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
