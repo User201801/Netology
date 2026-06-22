@@ -25,5 +25,6 @@
   <Project Path="Exercise_4_1/Exercise_4_1.vcxproj" Id="e3987778-479d-4aaf-b4b9-cb498fb0873a" />
   <Project Path="Exercise_4_2/Exercise_4_2.vcxproj" Id="d007fa47-0f1a-405f-af62-9d860f3883f8" />
   <Project Path="Exercise_4_3/Exercise_4_3.vcxproj" Id="8e373be5-ce7a-4263-84df-a4bd7ffcdd4c" />
+  <Project Path="Exercise_5_1/Exercise_5_1.vcxproj" Id="1d8e1dcf-7e9b-47b2-a736-d27e4d350785" />
   <Project Path="TestProject/TestProject.vcxproj" Id="c5013c52-ed89-4006-9a4f-68cd66bb4082" />
 </Solution>
