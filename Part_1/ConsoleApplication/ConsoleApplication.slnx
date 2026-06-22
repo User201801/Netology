@@ -6,6 +6,15 @@
   <Folder Name="/Элементы решения/">
     <File Path="Readme.txt" />
   </Folder>
+  <Folder Name="/Элементы решения/Modules/" />
+  <Folder Name="/Элементы решения/Modules/Include/" />
+  <Folder Name="/Элементы решения/Modules/Source/" />
+  <Folder Name="/Элементы решения/Сортировка/">
+    <File Path="Полезное/Сортировка/main.test.cpp" />
+    <File Path="Полезное/Сортировка/sorting.cpp" />
+    <File Path="Полезное/Сортировка/sorting.h" />
+    <File Path="Полезное/Сортировка/Виды сортировки.txt" />
+  </Folder>
   <Project Path="Exercise_1/Exercise_1.vcxproj" Id="668d17b1-d397-4897-959d-dca4d485c683" />
   <Project Path="Exercise_2/Exercise_2.vcxproj" Id="a76b4542-383b-4b50-a094-05da4d340637" />
   <Project Path="Exercise_2_2/Exercise_2_2.vcxproj" Id="ec46cc0e-acfc-4533-926c-c0b1d4cf7cdd" />
@@ -13,4 +22,6 @@
   <Project Path="Exercise_3_2/Exercise_3_2.vcxproj" Id="5a8c80e3-3f0f-4c20-afe5-668af38c310c" />
   <Project Path="Exercise_3_3/Exercise_3_3.vcxproj" Id="11704bea-1755-49a3-8bec-9d854404b9be" />
   <Project Path="Exercise_3_4/Exercise_3_4.vcxproj" Id="6d205354-d0ff-4759-97a7-791eebd6a2e3" />
+  <Project Path="Exercise_4_1/Exercise_4_1.vcxproj" Id="e3987778-479d-4aaf-b4b9-cb498fb0873a" />
+  <Project Path="TestProject/TestProject.vcxproj" Id="c5013c52-ed89-4006-9a4f-68cd66bb4082" />
 </Solution>
