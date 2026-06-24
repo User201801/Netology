@@ -8,3 +8,8 @@
 /// <param name="text">Текст для записи в файл</param>
 /// <returns>true если файл успешно создан и текст записан, false в случае ошибки</returns>
 bool saveTextToFile(const std::string& filename, const std::string& text);
+
+/// <summary>
+/// Выводит содержимое файла на консоль, каждое слово на отдельной строке
+/// </summary>
+void printFileContent(const std::string& filename);
