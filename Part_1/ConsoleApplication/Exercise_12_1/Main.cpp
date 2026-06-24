@@ -26,38 +26,46 @@
 #include <stdexcept>
 #include "../Source/Utils.h"
 
+
+void createExampleFile(const std::string& filename) {
+    // Создаем файл с примером данных
+    std::string content = "Картошка капуста\n";
+    content += "Малина клубника черешня\n";
+    content += "Яблоко груша апельсин\n";
+
+    saveTextToFile(filename, content);
+    std::cout << "Создан файл-пример: " << filename << std::endl;
+}
+
 int main() {
     // Устанавливаем кодировку
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
     try {
-        std::string fullPath = getFullPathInExeFolder("Temp\\in.txt");
+        std::string filename = getFullPathInExeFolder("Temp\\in.txt");
 
-        std::cout << "Путь к файлу: " << fullPath << std::endl;
-        std::cout << std::endl;
+        std::cout << "Содержимое файла " << filename << ":" << std::endl;
+        std::cout << "----------------------------------------" << std::endl;
 
-        // Проверяем существование файла
-        std::ifstream testFile(fullPath);
+        // Создаем файл источник.
+        std::ifstream testFile(filename);
         if (!testFile.is_open()) {
-            testFile.close();
-
-            // Создаем файл с примером данных
-            std::string content = "Картошка капуста\n";
-            content += "Малина клубника черешня\n";
-            content += "Яблоко груша апельсин\n";
-
-            saveTextToFile(fullPath, content);
-            std::cout << "Создан файл-пример: " << fullPath << std::endl;
+            createExampleFile(filename);
         }
         else {
             testFile.close();
         }
 
+        // Выводим содержимое файла построчно с номерами строк.
+        displayFileContent(filename);
+
+        std::cout << "----------------------------------------" << std::endl;
+
         std::cout << "Содержимое файла (каждое слово на отдельной строке):" << std::endl;
         std::cout << "----------------------------------------" << std::endl;
 
-        printFileContent(fullPath);
+        printFileContent(filename);
 
     }
     catch (const std::exception& e) {
