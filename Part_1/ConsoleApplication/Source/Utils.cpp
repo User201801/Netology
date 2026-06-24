@@ -1,5 +1,6 @@
 #include <fstream>  // для std::ofstream
 #include <string>   // для std::string
+#include <iostream>
 
 /// <summary>
 /// Сохраняет текст в файл

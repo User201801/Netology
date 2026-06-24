@@ -24,7 +24,7 @@
 #include <fstream>
 #include <string>
 #include <windows.h>
-#include "../Source/Utils.cpp"  // Путь к Utils.h в папке Source
+#include "../Source/Utils.h"  // Путь к Utils.h в папке Source
 
 /// <summary>
 /// Создает файл с примером данных, если он не существует
