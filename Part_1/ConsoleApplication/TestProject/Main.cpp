@@ -186,7 +186,7 @@ void displayUniverse(const Universe& universe, int generation) {
     if (!universe.grid) return;
 
     // Очищаем консоль.
-    std::system("clear");
+    std::system("cls");
 
     std::cout << "Поколение: " << generation << std::endl;
     std::cout << "Живых клеток: " << getLiveCellCount(universe) << std::endl;
