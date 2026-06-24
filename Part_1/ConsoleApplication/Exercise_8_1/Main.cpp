@@ -32,10 +32,9 @@
 
 #include <iostream>
 
-int call_count = 0;  // Глобальная переменная
-
 void counting_function()
 {
+    static int call_count = 0;  // Статическая переменная внутри функции
     call_count++;
     std::cout << "Количество вызовов функции counting_function(): " << call_count << std::endl;
 }
@@ -47,4 +46,5 @@ int main(int argc, char** argv)
     {
         counting_function();
     }
+    return 0;
 }
