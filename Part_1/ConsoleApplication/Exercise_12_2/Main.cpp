@@ -104,7 +104,9 @@ int main() {
         if (!testFile.is_open()) {
             createExampleFile(filename);
         }
-        testFile.close();
+        else {
+            testFile.close();
+        }
 
         // Выводим содержимое файла построчно с номерами строк.
         displayFileContent(filename);
