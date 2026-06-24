@@ -26,7 +26,7 @@ int main() {
     std::cin >> last_name;
 
     // Формируем и выводим приветствие
-    std::cout << "Здравствуйте, " << first_name << " " << last_name << "!" << std::endl;
+    std::cout << "Здравствуйте, " + first_name + " " + last_name << "!" << std::endl;
 
     return 0;
 }
