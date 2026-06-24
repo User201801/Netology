@@ -19,51 +19,51 @@
 //груша
 //апельсин
 
-
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <windows.h>
-#include "../Source/Utils.h"  // Путь к Utils.h в папке Source
-
-/// <summary>
-/// Создает файл с примером данных, если он не существует
-/// </summary>
-void createExampleFile(const std::string& filename) {
-    std::string content = "Картошка капуста\n";
-    content += "Малина клубника черешня\n";
-    content += "Яблоко груша апельсин\n";
-
-    if (saveTextToFile(filename, content)) {
-        std::cout << "Создан файл-пример: " << filename << std::endl;
-    }
-    else {
-        std::cout << "Ошибка: Не удалось создать файл-пример" << std::endl;
-    }
-}
+#include <stdexcept>
+#include "../Source/Utils.h"
 
 int main() {
-    // Устанавливаем кодировку для корректного отображения русского языка
+    // Устанавливаем кодировку
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    std::string filename = "in.txt";
+    try {
+        std::string fullPath = getFullPathInExeFolder("Temp\\in.txt");
 
-    // Проверяем существование файла
-    std::ifstream testFile(filename);
-    if (!testFile.is_open()) {
-        testFile.close();
-        createExampleFile(filename);
+        std::cout << "Путь к файлу: " << fullPath << std::endl;
+        std::cout << std::endl;
+
+        // Проверяем существование файла
+        std::ifstream testFile(fullPath);
+        if (!testFile.is_open()) {
+            testFile.close();
+
+            // Создаем файл с примером данных
+            std::string content = "Картошка капуста\n";
+            content += "Малина клубника черешня\n";
+            content += "Яблоко груша апельсин\n";
+
+            saveTextToFile(fullPath, content);
+            std::cout << "Создан файл-пример: " << fullPath << std::endl;
+        }
+        else {
+            testFile.close();
+        }
+
+        std::cout << "Содержимое файла (каждое слово на отдельной строке):" << std::endl;
+        std::cout << "----------------------------------------" << std::endl;
+
+        printFileContent(fullPath);
+
     }
-    else {
-        testFile.close();
+    catch (const std::exception& e) {
+        std::cout << "Ошибка: " << e.what() << std::endl;
+        return 1;
     }
-
-    std::cout << "Содержимое файла " << filename << " (каждое слово на отдельной строке):" << std::endl;
-    std::cout << "----------------------------------------" << std::endl;
-
-    // Выводим содержимое файла
-    printFileContent(filename);
 
     return 0;
 }

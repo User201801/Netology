@@ -1,42 +1,54 @@
-#include <fstream>  // для std::ofstream
-#include <string>   // для std::string
+#include "Utils.h"
+#include <fstream>
 #include <iostream>
+#include <windows.h>
+#include <filesystem>
 
-/// <summary>
-/// Сохраняет текст в файл
-/// </summary>
-/// <param name="filename">Имя файла для сохранения</param>
-/// <param name="text">Текст для записи в файл</param>
-/// <returns>true если файл успешно создан и текст записан, false в случае ошибки</returns>
-bool saveTextToFile(const std::string& filename, const std::string& text) {
+void saveTextToFile(const std::string& filename, const std::string& text) {
+    // Создаем все папки в пути
+    std::filesystem::path filePath(filename);
+    std::filesystem::path parentPath = filePath.parent_path();
+
+    if (!parentPath.empty() && !std::filesystem::exists(parentPath)) {
+        if (!std::filesystem::create_directories(parentPath)) {
+            throw std::runtime_error("Не удалось создать папки для файла: " + filename);
+        }
+    }
+
     std::ofstream file(filename);
     if (!file.is_open()) {
-        return false;
+        throw std::runtime_error("Не удалось создать файл: " + filename);
     }
 
     file << text;
     file.close();
-
-    return true;
 }
 
-/// <summary>
-/// Выводит содержимое файла на консоль, каждое слово на отдельной строке
-/// </summary>
 void printFileContent(const std::string& filename) {
     std::ifstream file(filename);
 
     if (!file.is_open()) {
-        std::cout << "Ошибка: Не удалось открыть файл " << filename << std::endl;
-        return;
+        throw std::runtime_error("Не удалось открыть файл: " + filename);
     }
 
     std::string word;
 
-    // Читаем файл по словам и выводим каждое на отдельной строке
     while (file >> word) {
         std::cout << word << std::endl;
     }
 
     file.close();
+}
+
+std::string getFullPathInExeFolder(const std::string& filename) {
+    char buffer[MAX_PATH];
+    GetModuleFileNameA(NULL, buffer, MAX_PATH);
+    std::string exePath(buffer);
+
+    size_t pos = exePath.find_last_of("\\/");
+    if (pos != std::string::npos) {
+        exePath = exePath.substr(0, pos);
+    }
+
+    return exePath + "\\" + filename;
 }
