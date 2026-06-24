@@ -26,99 +26,107 @@
 #include <windows.h>
 #include "../Source/Utils.h"
 
-/// <summary>
-/// Создает файл с примером данных, если он не существует
-/// </summary>
-void createExampleFile(const std::string& filename) {
-    std::string content = "5\n";
-    content += "1 2 3 4 5\n";
 
-    if (saveTextToFile(filename, content)) {
-        std::cout << "Создан файл-пример: " << filename << std::endl;
-    }
-    else {
-        std::cout << "Ошибка: Не удалось создать файл-пример" << std::endl;
-    }
+void createExampleFile(const std::string& filename) {
+    std::string content = "7\n";
+    content += "6 5 3 8 2 5 8\n";
+    saveTextToFile(filename, content);  // Единый стиль
+    std::cout << "Создан файл-пример: " << filename << std::endl;
 }
 
 /// <summary>
-/// Читает массив из файла и выводит его в обратном порядке
+/// Читает массив из файла и возвращает указатель на динамический массив
 /// </summary>
-void printArrayReversed(const std::string& filename) {
+int* readArrayFromFile(const std::string& filename, int& size) {
     std::ifstream file(filename);
 
     if (!file.is_open()) {
-        std::cout << "Ошибка: Не удалось открыть файл " << filename << std::endl;
-        return;
+        throw std::runtime_error("Не удалось открыть файл: " + filename);
     }
 
-    int size;
-
-    // Считываем размер массива (первое число в файле)
+    // Считываем размер массива
     if (!(file >> size)) {
-        std::cout << "Ошибка: Неверный формат файла. Ожидается число." << std::endl;
         file.close();
-        return;
+        throw std::runtime_error("Неверный формат файла. Ожидается число.");
     }
 
-    // Проверяем корректность размера
     if (size <= 0) {
-        std::cout << "Ошибка: Размер массива должен быть положительным числом." << std::endl;
         file.close();
-        return;
+        throw std::runtime_error("Размер массива должен быть положительным числом.");
     }
 
-    // Выделяем память под динамический массив
+    // Выделяем память
     int* arr = new int[size];
 
-    // Считываем элементы массива
+    // Считываем элементы
     for (int i = 0; i < size; ++i) {
         if (!(file >> arr[i])) {
-            std::cout << "Ошибка: Недостаточно элементов в файле." << std::endl;
-            delete[] arr;  // Освобождаем память
+            delete[] arr;
             file.close();
-            return;
+            throw std::runtime_error("Недостаточно элементов в файле.");
         }
     }
 
     file.close();
+    return arr;
+}
 
-    // Выводим массив в обратном порядке
+/// <summary>
+/// Выводит массив в обратном порядке
+/// </summary>
+void printArrayReversed(const int* arr, int size) {
+    if (size <= 0) {
+        std::cout << "Массив пуст" << std::endl;
+        return;
+    }
+
     for (int i = size - 1; i >= 0; --i) {
         std::cout << arr[i];
         if (i > 0) {
-            std::cout << " ";  // Добавляем пробел между числами
+            std::cout << " ";
         }
     }
     std::cout << std::endl;
-
-    // Освобождаем память
-    delete[] arr;
 }
 
 int main() {
-    // Устанавливаем кодировку для корректного отображения русского языка
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    std::string filename = "in.txt";
+    try {
+        std::string filename = getFullPathInExeFolder("Temp\\in.txt");
 
-    // Проверяем существование файла
-    std::ifstream testFile(filename);
-    if (!testFile.is_open()) {
+        std::cout << "Содержимое файла " << filename << ":" << std::endl;
+        std::cout << "----------------------------------------" << std::endl;
+
+        // Создаем файл источник.
+        std::ifstream testFile(filename);
+        if (!testFile.is_open()) {
+            createExampleFile(filename);
+        }
         testFile.close();
-        createExampleFile(filename);
+
+        // Выводим содержимое файла построчно с номерами строк.
+        displayFileContent(filename);
+
+        std::cout << "----------------------------------------" << std::endl;
+
+        int size = 0;
+        int* arr = readArrayFromFile(filename, size);
+
+        std::cout << "Массив в обратном порядке:" << std::endl;
+        std::cout << "----------------------------------------" << std::endl;
+
+        printArrayReversed(arr, size);
+
+        // Освобождаем память
+        delete[] arr;
+
     }
-    else {
-        testFile.close();
+    catch (const std::exception& e) {
+        std::cout << "Ошибка: " << e.what() << std::endl;
+        return 1;
     }
 
-    std::cout << "Массив в обратном порядке:" << std::endl;
-    std::cout << "----------------------------------------" << std::endl;
-
-    // Читаем и выводим массив в обратном порядке
-    printArrayReversed(filename);
-
-    system("pause");
     return 0;
 }

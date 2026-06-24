@@ -52,3 +52,26 @@ std::string getFullPathInExeFolder(const std::string& filename) {
 
     return exePath + "\\" + filename;
 }
+
+void displayFileContent(const std::string& filename) {
+    std::ifstream file(filename);
+
+    if (!file.is_open()) {
+        throw std::runtime_error("Не удалось открыть файл: " + filename);
+    }
+
+    std::string line;
+    int lineNumber = 1;
+
+
+    while (std::getline(file, line)) {
+        std::cout << line << std::endl;
+        lineNumber++;
+    }
+
+    if (lineNumber == 1) {
+        std::cout << "(файл пуст)" << std::endl;
+    }
+
+    file.close();
+}
