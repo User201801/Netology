@@ -112,7 +112,7 @@ int main() {
         std::cout << "Введенный массив:" << std::endl;
         printArray(arr, size);
 
-        std::string filename = getFullPathInExeFolder("out.txt");
+        std::string filename = getFullPathInExeFolder("Temp//Out.txt");
 
         saveArrayReversedToFile(filename, arr, size);
 
