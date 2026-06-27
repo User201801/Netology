@@ -285,7 +285,7 @@ int main() {
         return 1;
     }
 
-    int generation = 0;
+    int generation = 1;
     bool gameOver = false;
     std::string endReason;
 
