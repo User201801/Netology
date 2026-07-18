@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://User201801.github.io/Netology/Part_2/">
-    <img src="./preview.png" alt="Предпросмотр справочника Git, GitHub CLI и GitLab CLI" width="100%">
+    <img src="img/preview.png" alt="Предпросмотр справочника Git, GitHub CLI и GitLab CLI" width="100%">
   </a>
 </p>
 
