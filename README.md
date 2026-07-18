@@ -3,8 +3,8 @@
 Интерактивный русскоязычный справочник по командам Git, GitHub CLI (`gh`) и GitLab CLI (`glab`).
 
 <p align="center">
-  <a href="https://User201801.github.io/Netology/Part_2/">
-    <img src="img/preview.png" alt="Предпросмотр справочника Git, GitHub CLI и GitLab CLI" width="100%">
+  <a href="https://User201801.github.io/Netology/Part_2/img/">
+    <img src="preview.png" alt="Предпросмотр справочника Git, GitHub CLI и GitLab CLI" width="100%">
   </a>
 </p>
 
