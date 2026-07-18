@@ -1,18 +1,11 @@
 # Git, GitHub CLI и GitLab CLI — справочник команд
 
-Интерактивный русскоязычный справочник по командам Git, GitHub CLI (`gh`) и GitLab CLI (`glab`).
+Интерактивный русскоязычный справочник по командам Git,
+GitHub CLI (`gh`) и GitLab CLI (`glab`).
 
-<p align="center">
-  <a href="https://User201801.github.io/Netology/Part_2/img/">
-    <img src="preview.png" alt="Предпросмотр справочника Git, GitHub CLI и GitLab CLI" width="100%">
-  </a>
-</p>
+[![Предпросмотр справочника Git, GitHub CLI и GitLab CLI](./Part_2/img/preview.png)][reference-page]
 
-<p align="center">
-  <a href="https://User201801.github.io/Netology/Part_2/git_github_gitlab_commands_ru.html">
-    <strong>Открыть интерактивный справочник →</strong>
-  </a>
-</p>
+[**Открыть интерактивный справочник →**][reference-page]
 
 ## Возможности
 
@@ -24,6 +17,6 @@
 - автоматическое раскрытие найденных разделов;
 - подсветка совпадений;
 - копирование команд в буфер обмена;
-- светлая и тёмная темы.
+- автоматическая адаптация под светлую и тёмную тему системы.
 
-
+[reference-page]: https://user201801.github.io/Netology/Part_2/git_github_gitlab_commands_ru.html
